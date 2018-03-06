@@ -1,4 +1,4 @@
-/*Literally the same crap except here it you add hoes, minutes and sexs.*/
+/*Literally the same crap except here now you add hoes, minutes and sexs.*/
 
 #include <stdio.h>
 
