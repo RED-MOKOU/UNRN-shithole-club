@@ -1,4 +1,4 @@
-/*This program did something I forgot alredy but it works*/
+/*This program did something I forgot already what it was but it works, i think*/
 #include <stdio.h>
 
 int main(int argc, char const *argv[])
