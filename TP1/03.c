@@ -23,6 +23,7 @@ int* InitIdent(int size) {
 }
 
 void PrintMatrix(int* address, int size) {
+
 	signed int i, j;
 	int logicsize = size*size;
 	int* p = address;
@@ -31,7 +32,7 @@ void PrintMatrix(int* address, int size) {
 	for( i = 0; i < size; i++ ) {
 		for( j = 0; j < size; j++ )
 			printf("%1d ", p[i*size+j]);
-        printf("\n");
+		printf("\n");
 	}
 }
 
