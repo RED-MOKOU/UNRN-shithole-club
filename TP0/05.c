@@ -11,8 +11,8 @@ switch(car) {
 	case 'o':
 	case 'e':
 	case 'u':
-		printf("%c es una vocal", car);	
+		printf("%c is a vowel", car);	
 
 	default:
-		printf("%c no es una vocal.\n", car);
+		printf("%c is not a vowel.\n", car);
 }
