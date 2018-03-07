@@ -11,7 +11,7 @@ struct date {
 		signed int se;
 } date;
 
-int Comparation(struct date *data1, struct date *data2) {
+int Comparison(struct date *data1, struct date *data2) {
 
 	signed int da_dif, mo_dif, ye_dif;
 	float ho_dif, mi_dif, se_dif;
@@ -24,7 +24,7 @@ int Comparation(struct date *data1, struct date *data2) {
 	return da_dif + (mo_dif*30) + (ye_dif*365) + (ho_dif/24) + (mi_dif/1440) + (se_dif/86400);
 }
 
-int main(int argc, char const **argv)
+int main(int argc, char** argv)
 {
 
 	struct date d1;
@@ -35,6 +35,6 @@ int main(int argc, char const **argv)
 	puts("Input day, month, year, hour, minute and second of second date:");
 	scanf("%d %d %d",&d2.da,&d2.mo,&d2.ye,&d2.ho,&d2.mi,&d2.ye);
 
-	printf("La diferencia de dias es de: %d\n", Comparation(&d1,&d2));
+	printf("The difference in days between dates is: %d\n", Comparison(&d1,&d2));
 	return 0;
 }
