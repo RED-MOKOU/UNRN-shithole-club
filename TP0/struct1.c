@@ -4,7 +4,7 @@ each month is supposed to have by average but I ain't having any of that shit.*/
 
 #include <stdio.h>
 
-int main(int argc, char const **argv)
+int main(int argc, char** argv)
 {
 	struct date {
 		signed int day;
@@ -28,6 +28,6 @@ int main(int argc, char const **argv)
 	mont_dif = d1.mo > d2.mo ? d1.mo - d2.mo : d2.mo - d1.mo;
 	year_dif = d1.ye > d2.ye ? d1.ye - d2.ye : d2.ye - d1.ye;
 
-	printf("La diferencia de dias es de: %d\n", days_dif + (mont_dif*30) + (year_dif*365));
+	printf("The difference in days between dates is: %d\n", days_dif + (mont_dif*30) + (year_dif*365));
 	return 0;
 }
