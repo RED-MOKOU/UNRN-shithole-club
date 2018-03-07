@@ -1,29 +1,22 @@
-/*2) Escriba y ejecute un programa que lea 2 enteros. Estos dos enteros definen las dimensiones de una matriz
-(filas, columnas). La matriz tiene como dimensión física NxN, y dimensión lógica filasxcolumnas (enteros leídos).
-El programa debe inicializar la matriz con valores aleatorios entre 20 y 30. Luego, se debe imprimir la
-matriz de dos formas: por filas y por columnas. Definir funciones para inicializar y mostrar la matriz. Explique:
-¿qué sucede si N es muy grande? ¿Qué sucede si N es muy pequeño?*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-void FillArr(int address, int row, int col) {
+void InitArr(int** matrix, int row, int col) {
 
-	signed int i, j;
-	int** arr = (int**)malloc(sizeof(int)*row*col);
-	arr = address;
-	for( i = 0; i < row; i++ ) {    //ERROR CODE 139 SEGMENTATION FAULT
-		for( j = 0; j < col; j++ ) {
-			arr[i][j] = rand()%11+20;
-			printf("%2d", arr[i][j]);
-			}
+	signed int i, max = row*col;
+	int** arr = (int**)malloc(sizeof(int)*max);
+	arr = matrix;
+	for( i = 0; i < max; i++ ) {  
+		**arr = rand()%11+20;
+		arr++;
 	}
 	free(arr);
 }
 
 void Print(int** address, int row, int col) {
 
+/*Compute size of array through this*/
 //	int rows = sizeof array / sizeof array[0];
 // 	int cols = sizeof array[0] / sizeof(int);
 
@@ -43,8 +36,10 @@ int main(int argc, char** argv)
 	
 	puts("Ingrese dimensiones AxB");
 	scanf("%d %d", &a, &b);
+	if(a < 0 || b < 0) return 1; //don't do this please.
+
 	int array[a][b];
-	FillArr(&array, a, b);
+	InitArr(array, a, b);
 	Print(array, a, b);
 
 	return 0;
