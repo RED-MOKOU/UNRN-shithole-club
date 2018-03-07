@@ -5,7 +5,7 @@ matriz de dos formas: por filas y por columnas. Definir funciones para inicializ
 ¿qué sucede si N es muy grande? ¿Qué sucede si N es muy pequeño?*/
 
 /*Si N es muy grande no lo vas a poder mostrar por pantalla a menos que quieras que vaya nuclear,
-si es muy pequeño, i.e., <0, no se puede definir una matriz con tamaño 0.*/
+si es muy pequeño, i.e. <0, no se puede definir una matriz con tamaño 0.*/
 
 #include <stdio.h>
 #include <stdlib.h>
