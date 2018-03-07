@@ -13,14 +13,14 @@ void GenArr(double array[N]) {
 
 	signed int i;
 	for( i = 0; i < N; i++ )
-		array[i] = rand()%10;	//asign random values from 0 to 10, can be changed accordingly.
+		array[i] = rand()%101+10;	//asign random values from 10 to 100, can be changed accordingly.
 }
 
 void PrintArr(double array[N]) {
 
 	signed int i;
 	for( i = 0; i < N; i++ )
-		printf("%2.2f ", array[i]);
+		printf("%2d ", (int)array[i]);
 	printf("\n");
 }
 
