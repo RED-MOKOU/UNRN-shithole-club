@@ -23,11 +23,11 @@ int main(int argc, char** argv[])
 {
 	srand(time(NULL));
 	int size;
-	puts("Ingrese la dimension de la matriz:");
+	puts("Input size of matrix:");
 	scanf("%d", &size); if(size < 0) return 1;
-	int* matriz = InitMatrix(size);
+	int* matrix = InitMatrix(size);
 //	printf("Size of matrix: %d bytes\n", sizeof(int)*size*size);
-	free(matriz);
+	free(matrix);
 
 	return 0;
 }
