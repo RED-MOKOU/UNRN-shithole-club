@@ -24,12 +24,12 @@ void PrintArr(double array[N]) {
 	printf("\n");
 }
 
-int main(int argc, char const *argv[])
+int main(int argc, char** argv)
 {
 	srand(time(NULL));
 	int a1[N];
 	double a2[N];
-	
+
 	printf("Size of an int array of 100 numbers: %d bytes\n", (int)sizeof(a1));
 	printf("Size of a double array of 100 numbers: %d bytes\n", (int)sizeof(a2));
 
