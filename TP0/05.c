@@ -1,4 +1,4 @@
-/*Can't beleve I really had to make this crap*/
+/*Can't beleve I really had to code this crap*/
 
 switch(car) {
 	case 'A':
