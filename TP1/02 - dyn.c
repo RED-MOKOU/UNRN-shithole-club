@@ -30,7 +30,7 @@ int main(int argc, char** argv)
     srand(time(NULL));
     signed int a, b;
        
-    puts("Input matrix dimensions AxB");
+    puts("Input matrix dimensions (AxB)");
     scanf("%d %d", &a, &b);
     if(a < 0 || b < 0) return 1; //don't do this please.
      
