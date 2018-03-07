@@ -28,11 +28,11 @@ void PrintMatrix(int* address, int size) {
 	int* p = address;
 
 	printf("La memoria ocupada por la matriz de %dx%d es: %d bytes\n", size, size,sizeof(int)*logicsize);
-    for( i = 0; i < size; i++ ) {
-        for( j = 0; j < size; j++ )
-            printf("%1d ", p[i*size+j]);
+	for( i = 0; i < size; i++ ) {
+		for( j = 0; j < size; j++ )
+			printf("%1d ", p[i*size+j]);
         printf("\n");
-    }
+	}
 }
 
 int main(int argc, char** argv)
