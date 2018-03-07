@@ -1,7 +1,7 @@
 /*This program did something I forgot already what it was but it works, i think*/
 #include <stdio.h>
 
-int main(int argc, char const *argv[])
+int main(int argc, char** argv[])
 {
 	char car = 'a'; //ASCII code 97
 	for(;;) {
