@@ -12,14 +12,14 @@ sizeof() cuando sea necesario.*/
 void GenArr(double array[N]) {
 
 	signed int i;
-	for( i = 0; i < N; i++)
+	for( i = 0; i < N; i++ )
 		array[i] = rand()%10;	//asign random values from 0 to 10, can be changed accordingly.
 }
 
 void PrintArr(double array[N]) {
 
 	signed int i;
-	for( i = 0; i < N; i++)
+	for( i = 0; i < N; i++ )
 		printf("%2.2f ", array[i]);
 	printf("\n");
 }
@@ -29,6 +29,7 @@ int main(int argc, char const *argv[])
 	srand(time(NULL));
 	int a1[N];
 	double a2[N];
+	
 	printf("Size of an int array of 100 numbers: %d bytes\n", (int)sizeof(a1));
 	printf("Size of a double array of 100 numbers: %d bytes\n", (int)sizeof(a2));
 
