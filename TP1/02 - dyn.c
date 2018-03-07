@@ -11,7 +11,7 @@ si es muy pequeño, i.e. <0, no se puede definir una matriz con tamaño 0.*/
 #include <stdlib.h>
 #include <time.h>
      
-int *InitArr(int row, int col) {
+int* InitArr(int row, int col) {
      
     signed int i, max = row*col;
     int* arr = malloc(sizeof(int)*max);
@@ -43,7 +43,7 @@ int main(int argc, char** argv)
     scanf("%d %d", &a, &b);
     if(a < 0 || b < 0) return 1; //don't do this please.
      
-    int *matrix = InitArr(a, b);
+    int* matrix = InitArr(a, b);
     Print(matrix, a, b);
     free(matrix);
      
