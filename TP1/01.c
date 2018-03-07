@@ -1,8 +1,3 @@
-/*1) ¿Cuánto ocupará un arreglo de enteros de 100 elementos? ¿Y un arreglo de doubles de 100 elementos?
-Escriba y ejecute un programa que inicialice con valores aleatorios ambos arreglos, los muestre por pantalla
-y por último muestre la cantidad de bytes que ocupa cada uno. Implemente con funciones. Utilice la función
-sizeof() cuando sea necesario.*/
-
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
