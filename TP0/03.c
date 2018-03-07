@@ -15,14 +15,14 @@ void Mayus( char *namevector[MAX_COL][MAX_ROW]) {
 
 }
 */
-int main(int argc, char const *argv[])
+int main(int argc, char** argv[])
 {
 	char names[MAX_COL][MAX_ROW];
 	signed int cnt = 0, index = 0, x;
 
 	do
 	{
-		puts("Ingrese nombre:");
+		puts("Input number:");
 		scanf("%s",&names[index]);
 		index++; cnt++;
 	} while(cnt < MAX_COL);
