@@ -8,7 +8,7 @@ void GenArr(double array[N]) {
 
 	signed int i;
 	for( i = 0; i < N; i++ )
-		array[i] = rand()%101+10;	//asign random values from 10 to 100, can be changed accordingly.
+		array[i] = rand()%91+10;	//asign random values from 10 to 100, can be changed accordingly.
 }
 
 void PrintArr(double array[N]) {
