@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define N 5
+#define N 10
 
 typedef struct {
 	int real, imag;
@@ -40,17 +40,12 @@ void InitNum(tsComplex *num) {
 tsComplex *Add(tsComplex *number1, tsComplex *number2) {
 	tsComplex *result;
 	int i, j;
-//	puts("---");
 	for( i = 0; i < N; i++) {
 		for( j = 0; j < N; j++) {
 			result[i][j]->real = number1[i][j]->real + number2[i][j]->real;
-//			printf("r[%d][%d]:%d+%d=%d ", i , j, number1[i][j]->real, number2[i][j]->real, result[i][j]->real);
 			result[i][j]->imag = number1[i][j]->imag + number2[i][j]->imag;
-//			printf("i[%d][%d]:%d+%d=%d ", i , j, number1[i][j]->imag, number2[i][j]->imag, result[i][j]->imag);
 		}
-//		printf("\n");
 	}
-//	puts("---");
 	return result;
 }
 
@@ -77,7 +72,7 @@ int main(int argc, char** argv) {
 	PrintNum(&num2);
 	puts("What would you like to do? (+, -)");
 	scanf(" %c", &operator);
-	if ((operator != '+' && operator != '-' )) {
+	if ((operator != '+' && operator != '-' )) { //compiler complains otherwise
 		printf("Error: Invalid Operation.");
 		return -1;
 	}
