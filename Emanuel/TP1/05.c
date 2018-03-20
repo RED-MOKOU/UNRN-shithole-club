@@ -66,10 +66,8 @@ int main(int argc, char** argv) {
 	srand(time(NULL));
 	tsComplex num1, num2, *result;
 	char operator;
-	InitNum(&num1);
-	InitNum(&num2);
-	PrintNum(&num1);
-	PrintNum(&num2);
+	InitNum(&num1); InitNum(&num2);
+	PrintNum(&num1); PrintNum(&num2);
 	puts("What would you like to do? (+, -)");
 	scanf(" %c", &operator);
 	if ((operator != '+' && operator != '-' )) { //compiler complains otherwise
