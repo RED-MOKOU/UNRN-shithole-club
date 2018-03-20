@@ -3,7 +3,6 @@
 #include <time.h>
 #define N 1000
 
-
 void InitArr(int arr[N]) {
 	int i;
 	for(i = 0; i < N; i++)
