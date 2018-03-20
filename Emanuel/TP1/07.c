@@ -32,7 +32,7 @@ void PrintArr(int arr[N]) {
 		if(i%30 == 0)
 			printf("\n");
 	}
-	puts("---");
+	printf("\n---");
 }
 
 int main(int argc, char** argv) {
