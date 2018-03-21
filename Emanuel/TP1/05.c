@@ -9,7 +9,6 @@ typedef struct {
 
 /*Usage; PrintNum(&var_add)*/
 void PrintNum(tsComplex *number) {
-
 	int i, j, aux;
 	for(i = 0; i < N; i++) {
 		for(j = 0; j < N; j++) {
@@ -70,7 +69,7 @@ int main(int argc, char** argv) {
 	PrintNum(&num1); PrintNum(&num2);
 	puts("What would you like to do? (+, -)");
 	scanf(" %c", &operator);
-	if ((operator != '+' && operator != '-' )) { //compiler complains otherwise
+	if ((operator != '+' && operator != '-' )) {
 		printf("Error: Invalid Operation.");
 		return -1;
 	}
