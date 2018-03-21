@@ -11,12 +11,13 @@ typedef struct {
 	int real, imag;
 } tsComplex[N][N];
 
-//Podria mejorarse para que imprima 0 cuando la parte real e imaginaria son 0, o solo la parte real si la imaginaria es 0.
+//Podria mejorarse para que imprima 0 cuando la parte real e imaginaria son 0, o solo la parte real si la imaginaria es 0,
+//Pero no es el objetivo del trabajo.
 void PrintNum(tsComplex number) {
 	int i, j, aux;
 	for(i = 0; i < N; i++) {
 		for(j = 0; j < N; j++) {
-			if( number[i][j].imag < 0 ) {
+			if(number[i][j].imag < 0 ) {
 				aux = number[i][j].imag*(-1);
 				printf("%d-%di ", number[i][j].real, aux);
 			}
@@ -31,8 +32,8 @@ void PrintNum(tsComplex number) {
 
 void InitNum(tsComplex num) {
 	int i, j;
-	for (i = 0; i < N; i++) {
-		for( j = 0; j < N; j++) {
+	for(i = 0; i < N; i++) {
+		for(j = 0; j < N; j++) {
 			num[i][j].real = rand()%18-9;
 			num[i][j].imag = rand()%18-9;
 		}
@@ -41,8 +42,8 @@ void InitNum(tsComplex num) {
 
 void Add(tsComplex result, tsComplex number1, tsComplex number2) {
 	int i, j;
-	for( i = 0; i < N; i++) {
-		for( j = 0; j < N; j++) {
+	for(i = 0; i < N; i++) {
+		for(j = 0; j < N; j++) {
 			result[i][j].real = number1[i][j].real + number2[i][j].real;
 			result[i][j].imag = number1[i][j].imag + number2[i][j].imag;
 		}
@@ -51,8 +52,8 @@ void Add(tsComplex result, tsComplex number1, tsComplex number2) {
 
 void Sub(tsComplex result, tsComplex number1, tsComplex number2) {
 	int i, j;
-	for( i = 0; i < N; i++) {
-		for( j = 0; j < N; j++) {
+	for(i = 0; i < N; i++) {
+		for(j = 0; j < N; j++) {
 			result[i][j].real = number1[i][j].real - number2[i][j].real;
 			result[i][j].imag = number1[i][j].imag - number2[i][j].imag;
 		}
