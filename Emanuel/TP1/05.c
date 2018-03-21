@@ -67,7 +67,7 @@ int main(int argc, char** argv) {
 	PrintNum(num1); PrintNum(num2);
 	puts("Que operacion desea realizar? (+, -)");
 	scanf(" %c", &operator);
-	if ((operator != '+' && operator != '-' )) {
+	if (operator != '+' && operator != '-' ) {
 		printf("Error: Operacion Invalida.");
 		return -1;
 	}
