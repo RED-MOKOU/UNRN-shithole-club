@@ -19,10 +19,10 @@ void PrintNum(tsComplex number) {
 		for(j = 0; j < N; j++) {
 			if(number[i][j].imag < 0 ) {
 				aux = number[i][j].imag*(-1);
-				printf("%d-%di ", number[i][j].real, aux);
+				printf("%2d-%di ", number[i][j].real, aux);
 			}
 			else {
-				printf("%d+%di ", number[i][j].real, number[i][j].imag);
+				printf("%2d+%di ", number[i][j].real, number[i][j].imag);
 			}
 		}
 	printf("\n");
@@ -30,13 +30,13 @@ void PrintNum(tsComplex number) {
 	printf("\n");
 }
 
-//Asigna valores desde -9 a 9 (para que haya diversidad de signos cuando se opere).
+//Asigna valores desde -4 a 4 (para que haya diversidad de signos cuando se opere).
 void InitNum(tsComplex num) {
 	int i, j;
 	for(i = 0; i < N; i++) {
 		for(j = 0; j < N; j++) {
-			num[i][j].real = rand()%18-9;
-			num[i][j].imag = rand()%18-9;
+			num[i][j].real = rand()%8-4;
+			num[i][j].imag = rand()%8-4;
 		}
 	}
 }
@@ -70,7 +70,7 @@ int main(int argc, char** argv) {
 	PrintNum(num1); PrintNum(num2);
 	puts("Que operacion desea realizar? (+, -)");
 	scanf(" %c", &operator);
-	if (operator != '+' && operator != '-' ) {
+	if (operator != '+' && operator != '-' ) { //Por alguna razon el compilador se queja al usar OR.
 		printf("Error: Operacion Invalida.");
 		return -1;
 	}
