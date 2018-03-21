@@ -65,10 +65,10 @@ int main(int argc, char** argv) {
 	char operator;
 	InitNum(num1); InitNum(num2);
 	PrintNum(num1); PrintNum(num2);
-	puts("What would you like to do? (+, -)");
+	puts("Que operacion desea realizar? (+, -)");
 	scanf(" %c", &operator);
 	if ((operator != '+' && operator != '-' )) {
-		printf("Error: Invalid Operation.");
+		printf("Error: Operacion Invalida.");
 		return -1;
 	}
 	switch(operator) {
