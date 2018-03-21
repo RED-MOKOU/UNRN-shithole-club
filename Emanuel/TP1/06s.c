@@ -10,7 +10,13 @@ reescribiendo las posiciones de los datos.*/
 #include <time.h>
 #define N 10
 
-void PrintArr(int*, int);
+/*Imprime el array*/
+void PrintArr(int array[N], int size) {
+	int i;
+	for (i = 0; i < size; i++)
+		printf("%d ", array[i]);
+	puts("");
+}
 
 /*Asigna valores aleatorios del 1 al 9 en el array*/
 void InitArray(int array[N]) {
@@ -42,14 +48,6 @@ void ShaveArr(int array[N], int num) {
 	for( i = 0; i < N-1; i++) { //Copia arr2 en array
 		array[i] = arr2[i];
 	}
-}
-
-/*Imprime el array*/
-void PrintArr(int array[N], int size) {
-	int i;
-	for (i = 0; i < size; i++)
-		printf("%d ", array[i]);
-	puts("");
 }
 
 int main( int argc, char** argv) {
