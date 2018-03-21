@@ -13,7 +13,7 @@ Por el contrario, si N es muy pequeño, la memoria alocada no alcanzara para alm
 #define N 100 //Se asume que la matriz no sera mayor que 100x100. Preferentemente, habria que usar memoria dinamica.
 	 
 void InitArr(int mat[N][N], int row, int col) {
-	 int i, j;
+	int i, j;
 	for( i = 0; i < row; i++ ) {  
 		for( j = 0; j < col; j++)
 			mat[i][j] = rand()%10+20;
