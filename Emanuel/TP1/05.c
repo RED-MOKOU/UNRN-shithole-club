@@ -11,6 +11,7 @@ typedef struct {
 	int real, imag;
 } tsComplex[N][N];
 
+//Podria mejorarse para que imprima 0 cuando la parte real e imaginaria son 0, o solo la parte real si la imaginaria es 0.
 void PrintNum(tsComplex number) {
 	int i, j, aux;
 	for(i = 0; i < N; i++) {
