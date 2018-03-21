@@ -1,33 +1,45 @@
-/*Lim -> 10 000 (100 000 integers), after that, segmentation fault (i.e. ran out of memory on the block)*/
+/*4) Escriba y ejecute un programa que declare una matriz de enteros. Asuma una matriz cuadrada y varíe sus dimensiones.
+Pruebe distintos valores como: 100, 500, 1000... hasta que dé un error en el momento de ejecución.
+¿Por qué sucede esto?*/
+
+/*Lim -> 10 000 (100 000 interos), luego de eso, el sistema se queja con un segmentation error (problema de alocacion de memoria).*/
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#define N 500
 
-int* InitMatrix(int size) {
+void PrintMat(int m[N][N], int s) {
+	int i,j;
+	for( i = 0; i < s; i++) {
+		for( j = 0; j < s; j++)
+			printf("%2d ", m[i][j]);
+		printf("\n");
+	}
+}
 
-	signed int i,j;
-	int* arr = (int*)malloc(sizeof(int)*size*size);
-	int* cur = arr;
+void InitMatrix(int mat[N][N], int size) {
+	int i,j;
 	
 	for( i = 0; i < size; i++) {
 		for( j = 0; j < size; j++) {
-			*cur = rand()%100;
-			cur++;
+			mat[i][j] = rand()%100;
 		}
 	}
-	return arr;
+	PrintMat(mat, size);
 }
 
 int main(int argc, char** argv[])
 {
 	srand(time(NULL));
-	int size;
-	puts("Input size of matrix:");
-	scanf("%d", &size); if(size < 0) return 1;
-	int* matrix = InitMatrix(size);
-//	printf("Size of matrix: %d bytes\n", sizeof(int)*size*size);
-	free(matrix);
+	int size, matriz[N][N];
+	puts("Ingrese la dimension de la matriz:");
+	scanf("%d", &size);
+	if(size < 0) {
+		printf("Error: Dimension invalida.");
+		return 1;
+	}
+	InitMatrix(matriz, size);
 
 	return 0;
 }
