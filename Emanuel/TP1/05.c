@@ -30,6 +30,7 @@ void PrintNum(tsComplex number) {
 	printf("\n");
 }
 
+//Asigna valores desde -9 a 9 (para que haya diversidad de signos cuando se opere).
 void InitNum(tsComplex num) {
 	int i, j;
 	for(i = 0; i < N; i++) {
