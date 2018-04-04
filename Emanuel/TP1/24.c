@@ -36,17 +36,17 @@ void ShellSort(int vector[SIZE]) {
 	int i, j,aux, incr = SIZE;
 	do {
 		for (i = incr; i < SIZE; i++) {
-			for (j = i; (j>=incr) && (vector[j-incr]>vector[j]); j -= incr)
+			for ( j = i; (j >= incr) && (vector[j-incr] > vector[j]); j -= incr )
 				swap(&vector[j], &vector[j-incr]);
 		}
 		incr = incr >> 1; //Division mas rapida
-	} while (incr >0);
+	} while (incr > 0);
 }
 
 void Merge(int A[SIZE], int B[SIZE], int C[SIZE*2]) {
 	int i = 0, j = 0, k = 0;
 	while (k < SIZE*2) {
-		printf("[i,j,k] = [%d,%d,%d]\nA[i] = %d, B[j] = %d\n", i, j, k, A[i], B[j]);
+//		printf("[i,j,k] = [%d,%d,%d]\nA[i] = %d, B[j] = %d\n", i, j, k, A[i], B[j]);
 		if( A[i] < B[j] && (i < SIZE)) {
 			C[k] = A[i];
 			i++; k++;
