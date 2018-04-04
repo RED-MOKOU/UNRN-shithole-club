@@ -39,7 +39,7 @@ void ShellSort(int vector[SIZE]) {
 			for (j = i; (j>=incr) && (vector[j-incr]>vector[j]); j -= incr)
 				swap(&vector[j], &vector[j-incr]);
 		}
-		incr = incr / 2;
+		incr = incr >> 1; //Division mas rapida
 	} while (incr >0);
 }
 
