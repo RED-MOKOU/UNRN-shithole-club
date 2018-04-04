@@ -1,6 +1,4 @@
-/*Jose Emanuel Suez - UNRN PyA
-
-3) Escribir y ejecutar un programa que maneje números complejos (parte real e imaginaria asumirla como
+/*3) Escribir y ejecutar un programa que maneje números complejos (parte real e imaginaria asumirla como
 enteros). Implemente funciones para: leer un número complejo, mostrar por pantalla un número complejo,
 sumar 2 complejos, restar 2 números complejos y multiplicar dos números complejos.*/
 

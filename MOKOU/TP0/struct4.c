@@ -1,6 +1,4 @@
-/*Jose Emanuel Suez - UNRN PyA
-
-4) Escribir y ejecutar un programa que lea la informacion de una pelicula: nombre, director, año, codigo.
+/*4) Escribir y ejecutar un programa que lea la informacion de una pelicula: nombre, director, año, codigo.
 Realizar funciones para leer la informacion de una pelicula y para mostrar por pantalla la informacion de una
 pelicula.*/
 
