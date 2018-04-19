@@ -6,22 +6,15 @@ funcion calloc() para asignar memoria al arreglo y compruebe que se ha podido as
 Escribir una funcion que retorne un puntero a un array de estructuras punto. Los valores de los puntos se
 ingresan en esa funcion.*/
 
-//#include "basiclib.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "basiclib.h"
 
 typedef struct {
 	float x, y, z;
 } tsCoordinates;
 
-void Quits() {
-	puts("Error: Memoria insuficiente.");
-	exit(-1);
-}
-
 void PrintV(tsCoordinates *v, int d) {
 	for (int i = 0; i < d; ++i)
-		printf("[%2.2f, %2.2f, %2.2f] ", (v++)->x, (v++)->y, (v++)->z);
+		printf("[%2.2f, %2.2f, %2.2f] ", (v+i)->x, (v+i)->y, (v+i)->z);
 }
 
 tsCoordinates* Leer(int dim) {
@@ -31,7 +24,7 @@ tsCoordinates* Leer(int dim) {
 		Quits();
 	printf("Ingrese las coordenadas de los %d valores:\n", dim);
 	for (int i = 0; i < dim; ++i)
-		scanf("%f %f %f", &(r++)->x, &(r++)->y, &(r++)->z);
+		scanf("%f %f %f", &(r+i)->x, &(r+i)->y, &(r+i)->z);
 	return r;
 }
 
