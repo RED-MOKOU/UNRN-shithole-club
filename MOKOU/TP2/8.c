@@ -139,7 +139,7 @@ int* Transpose(int* A, int dim) {
 
 int main() {
     srand(time(NULL));
-	int *A,*B,*C,*I;
+	int *A,*B,*I,*C = NULL;
 	int dim = 0, op = 0;
 	char m = 0;
 	puts("Ingrese dimension de las matrices:");
