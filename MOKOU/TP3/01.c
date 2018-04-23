@@ -43,6 +43,7 @@ typedef struct {
 /*Definidos por el programador*/
 void Menu(Lista_T*);
 void SuprimirPrimerElemento(Lista_T*);
+void SuprimirUltimoElemento(Lista_T*);
 void Quits();
 
 /*Definidos por la consigna del ejercicio*/
@@ -58,8 +59,7 @@ int LongitudLista(Lista_T);
 int DevolverDatoPosicion(Lista_T, int);
 
 int main() {
-	Lista_T LinkedList;
-	LinkedList = CrearLista();
+	Lista_T LinkedList = CrearLista();
 	Menu(&LinkedList);
 	VaciarLista(&LinkedList);
 	return 0;
@@ -148,19 +148,27 @@ int SuprimirDato(Lista_T *l, int x) {
 	struct Nodo *curr, *temp = NULL;
 	int pos = 0;
 	if(l->n) {
+		if ((l->lista)->dato == x) { //Primer elemento
+			SuprimirPrimerElemento(l);
+			return 1;
+		}
 		curr = l->lista;
 		while ((curr->sig)->dato != x) {
 			curr = curr->sig;
 			++pos;
-			}
-		if (!pos)
-			SuprimirPrimerElemento(l);
-		else {
+		}
+		if(pos == (l->n)-1) { //ultimo elemento
+			SuprimirUltimoElemento(l);
+			return 1;
+		}
+		else if ((curr->sig)->dato == x) {
 			temp = curr->sig;
 			curr->sig = temp->sig;
 			free(temp);
 			return 1;
 		}
+		else
+			return 0;
 	}
 }
 
@@ -168,17 +176,25 @@ int SuprimirDato(Lista_T *l, int x) {
 int SuprimirNodo(Lista_T *l, int pos) {
 	struct Nodo *curr = l->lista;
 	struct Nodo *temp = NULL;
-	if(pos == 0)
+	if(pos == 0) {
 		SuprimirPrimerElemento(l);
-	for (int i = 0; i < --pos; ++i) {
-		if(curr->sig == NULL)
-			return 0;
-		curr = curr->sig;
+		return 1;
 	}
-	temp = curr->sig;
-	curr->sig = temp->sig;
-	free(temp);
-	return 1;
+	if(pos == l->n) {
+		SuprimirUltimoElemento(l);
+		return 1;
+	}
+	else {
+		for (int i = 0; i < pos-1; ++i) {
+			if(curr->sig == NULL)
+				return 0;
+			curr = curr->sig;
+		}
+		temp = curr->sig;
+		curr->sig = temp->sig;
+		free(temp);
+		return 1;
+	}
 }
 
 /*Retorna la longitud de la lista.*/
@@ -201,15 +217,24 @@ int DevolverDatoPosicion(Lista_T l, int pos) {
 	}
 }
 
+/*Se hace apuntar l->lista al elemento siguiente al primero, y luego se libera este.*/
 void SuprimirPrimerElemento(Lista_T* l) {
-	struct Nodo *temp = NULL;
-	if(l->lista == NULL) {
-		puts("Error: No se puede eliminar datos (no hay primer elemento.)");
+	if( (struct Nodo *temp = l->lista) == NULL) {
+		puts("Error: No se puede eliminar datos (no hay primer elemento).");
 		return;
 	}
-	temp = l->lista;
 	l->lista = (l->lista)->sig;
 	free(temp);
+}
+
+/*Itera hasta el penultimo elemento, libera el ultimo y asigna NULL al que ahora es el ultimo elemento.*/
+void SuprimirUltimoElemento(Lista_T*) {
+	struct Nodo *temp = l->lista;
+	while ((temp->sig)->sig != NULL) {
+		current = current->next;
+    }
+	free(current->next);
+	current->next = NULL;
 }
 
 void Quits() {
