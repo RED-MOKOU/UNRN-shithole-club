@@ -90,7 +90,7 @@ int InsertarPrimero(Lista_T *l, int x) {
 
 /*Inserta nodo con elemento x como último elemento de la lista. Retorna 1 si la operación se realiza con éxito, 0 caso contrario.*/
 int InsertarUltimo(Lista_T *l, int x ) {
-	struct Nodo *p, *nuevo;
+	struct Nodo *temp, *nuevo;
 	if ((nuevo = (struct Nodo*)malloc(sizeof(struct Nodo))) == NULL) {
 		printf("No hay memoria disponible.\n");
 		return 0;
@@ -98,10 +98,10 @@ int InsertarUltimo(Lista_T *l, int x ) {
 	nuevo->dato = x;
 	nuevo->sig = NULL; //ultimo elemento en la lista
 	if (!EstaVacia(*l)) {
-		p = l->lista;
-		while (p->sig != NULL)
-			p = p->sig;
-		p->sig = nuevo; //p esta en el ultimo nodo, se actualiza su campo siguiente para que apunte a "nuevo"
+		temp = l->lista;
+		while (temp->sig != NULL)
+			temp = temp->sig;
+		temp->sig = nuevo; //temp esta en el ultimo nodo, se actualiza su campo siguiente para que apunte a "nuevo"
 	}
 	++(l->n);
 	return 1;
@@ -109,15 +109,15 @@ int InsertarUltimo(Lista_T *l, int x ) {
 
 /*Recorre la lista “l” imprimiendo sus elementos. Retorna 1 si la operación se realiza con éxito, 0 caso contrario (la lista no tiene elementos).*/
 int RecorrerLista(Lista_T l) {
-	struct Nodo *Elemento;
+	struct Nodo *elemento;
 	if(l.n < 0)
 		return 0;
 	else  {
-		Elemento = l.lista; // n apunta al primer elemento de la lista
+		elemento = l.lista; // n apunta al primer elemento de la lista
 		puts("");
-		while (Elemento != NULL) {
-			printf("%d ",Elemento->dato);
-			Elemento = Elemento->sig;
+		while (elemento != NULL) {
+			printf("%d ",elemento->dato);
+			elemento = elemento->sig;
 		}
 	}
 	printf("\n\n");
