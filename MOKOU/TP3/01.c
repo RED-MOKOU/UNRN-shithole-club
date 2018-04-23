@@ -61,7 +61,10 @@ int DevolverDatoPosicion(Lista_T, int);
 int main() {
 	Lista_T LinkedList = CrearLista();
 	Menu(&LinkedList);
-	VaciarLista(&LinkedList);
+	if(VaciarLista(&LinkedList))
+		printf("La lista ha sido vaciada.\n");
+	else
+		printf("La lista no tenia elementos para vaciar.\n");
 	return 0;
 }
 
@@ -127,20 +130,21 @@ int EstaVacia(Lista_T l) {
 }
 
 /*Desaloca la memoria de cada nodo. Longitud de la lista = 0. Retorna 1 si la operación se realiza con éxito, 0 caso contrario.*/
-//Nota: Cuando no se realiza con exito?
 int VaciarLista(Lista_T *l) {
 	struct Nodo *head, *curr;
-	printf("Vaciando lista...");
-	if(l->n < 0) {
+	printf("Vaciando lista");
+	if(l->n > 0) {
 		head = l->lista;
 		while ((curr = head) != NULL) {
 			head = head->sig;
 			free(curr);
+			printf(".\n");
 		}
 	l->n = 0;
-	}
-	printf(" la lista ha sido vaciada.");
 	return 1;
+	}
+	else
+		return 0;
 }
 
 /*Elimina el nodo con el dato x de la lista. Retorna 1 si el dato esta en la lista (y es eliminado), 0 en caso contrario.*/
@@ -150,6 +154,7 @@ int SuprimirDato(Lista_T *l, int x) {
 	if(l->n) {
 		if ((l->lista)->dato == x) { //Primer elemento
 			SuprimirPrimerElemento(l);
+			--(l->n);
 			return 1;
 		}
 		curr = l->lista;
@@ -159,12 +164,14 @@ int SuprimirDato(Lista_T *l, int x) {
 		}
 		if(pos == (l->n)-1) { //ultimo elemento
 			SuprimirUltimoElemento(l);
+			--(l->n);
 			return 1;
 		}
 		else if ((curr->sig)->dato == x) {
 			temp = curr->sig;
 			curr->sig = temp->sig;
 			free(temp);
+			--(l->n);
 			return 1;
 		}
 		else
@@ -178,10 +185,12 @@ int SuprimirNodo(Lista_T *l, int pos) {
 	struct Nodo *temp = NULL;
 	if(pos == 0) {
 		SuprimirPrimerElemento(l);
+		--(l->n);
 		return 1;
 	}
 	if(pos == l->n) {
 		SuprimirUltimoElemento(l);
+		--(l->n);
 		return 1;
 	}
 	else {
@@ -193,6 +202,7 @@ int SuprimirNodo(Lista_T *l, int pos) {
 		temp = curr->sig;
 		curr->sig = temp->sig;
 		free(temp);
+		--(l->n);
 		return 1;
 	}
 }
@@ -219,7 +229,8 @@ int DevolverDatoPosicion(Lista_T l, int pos) {
 
 /*Se hace apuntar l->lista al elemento siguiente al primero, y luego se libera este.*/
 void SuprimirPrimerElemento(Lista_T* l) {
-	if( (struct Nodo *temp = l->lista) == NULL) {
+    struct Nodo *temp;
+	if((temp = l->lista) == NULL) {
 		puts("Error: No se puede eliminar datos (no hay primer elemento).");
 		return;
 	}
@@ -228,13 +239,13 @@ void SuprimirPrimerElemento(Lista_T* l) {
 }
 
 /*Itera hasta el penultimo elemento, libera el ultimo y asigna NULL al que ahora es el ultimo elemento.*/
-void SuprimirUltimoElemento(Lista_T*) {
+void SuprimirUltimoElemento(Lista_T *l) {
 	struct Nodo *temp = l->lista;
 	while ((temp->sig)->sig != NULL) {
-		current = current->next;
-    }
-	free(current->next);
-	current->next = NULL;
+		temp = temp->sig;
+	}
+	free(temp->sig);
+	temp->sig = NULL;
 }
 
 void Quits() {
@@ -312,7 +323,7 @@ void Menu(Lista_T *list) {
 				}
 				num = DevolverDatoPosicion(*list, bus_op);
 				if(num != -1)
-					printf("El numero de la posicion \"%d\" es: %d\n", num, bus_op);
+					printf("El numero de la posicion \"%d\" es: %d\n", bus_op, num);
 				break;
 			default:
 				puts("Error: Opcion invalida.");
