@@ -1,6 +1,4 @@
-/* UNRN PyA - Jose Emanuel Suez
-
-6) Escribir un programa que lea del teclado 2 valores que indican filas y columnas de una matriz (se aloca en
+/*6) Escribir un programa que lea del teclado 2 valores que indican filas y columnas de una matriz (se aloca en
 tiempo de ejecucion). Inicializar dicha matriz, y para cada fila de la matriz, indicar el valor maximo y el valor
 minimo. Implementar con funciones.*/
 
