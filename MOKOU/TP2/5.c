@@ -1,6 +1,4 @@
-/* UNRN PyA - Jose Emanuel Suez
-
-5) Explique que realiza el siguiente programa. Agregue comentarios explicando cada parte del codigo.*/
+/*5) Explique que realiza el siguiente programa. Agregue comentarios explicando cada parte del codigo.*/
 
 /*-----
 El programa pregunta por la dimension para crear vector de floats mediante memoria dinamica,
