@@ -1,6 +1,4 @@
-/* UNRN PyA - Jose Emanuel Suez
-
-12) Retomar los algoritmos de ordenacion vistos anteriormente e implementar un programa donde se le pida
+/*12) Retomar los algoritmos de ordenacion vistos anteriormente e implementar un programa donde se le pida
 al usuario que algoritmo quiere utilizar: (1) Metodo de la burbuja, (2) Metodo de Insercion, (3) Metodo de Seleccion,
 (4) Shell Sort. Declarar un puntero a una funcion que ordene un vector de enteros de dimension DIM.
 Elegir en tiempo de ejecucion el metodo de ordenacion e invocarlo utilizando un puntero a funcion. Tomar
