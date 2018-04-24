@@ -1,6 +1,4 @@
-/* UNRN PyA - Jose Emanuel Suez
-
-2) A continuacion se describe el ejemplo del libro “Introduccion a la Programacion en C” de los autores
+/*2) A continuacion se describe el ejemplo del libro “Introduccion a la Programacion en C” de los autores
 Marco A. Peña Basurto y Jose M. Cela Espin (Aula Politecnica /ETSETB). Dicho ejemplo está en el capítulo
 9, ejemplificando el uso de punteros y tablas. Analizar y describir que es lo que hace este codigo.*/
 
