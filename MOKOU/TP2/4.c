@@ -1,6 +1,4 @@
-/* UNRN PyA - Jose Emanuel Suez
-
-4) Realizar un programa que lea un valor del teclado. Alocar en memoria dinámica un vector de enteros de
+/*4) Realizar un programa que lea un valor del teclado. Alocar en memoria dinámica un vector de enteros de
 longitud igual al valor leído. Inicializar dicho vector con valores aleatorios entre 10 y 20. Imprimir el vector.
 Implementar usando funciones.*/
 
