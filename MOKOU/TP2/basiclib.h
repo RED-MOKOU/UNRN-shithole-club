@@ -1,5 +1,3 @@
-/* UNRN PyA - Jose Emanuel Suez*/
-
 #ifndef _BASIC_
 #define _BASIC_
 
