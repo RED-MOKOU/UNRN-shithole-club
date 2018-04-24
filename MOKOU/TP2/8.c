@@ -1,6 +1,4 @@
-/* UNRN PyA - Jose Emanuel Suez
-
-8) Escriba un programa para generar matrices cuadradas de enteros (el usuario introduce la dimension por teclado
+/*8) Escriba un programa para generar matrices cuadradas de enteros (el usuario introduce la dimension por teclado
 y todas las matrices generadas tienen el mismo tamaño). El programa reserva memoria todas las matrices
 requeridas. Se pide implementar funciones para inicializar matrices: con numeros aleatorios entre 1 y 9, matriz
 simetrica con numeros aleatorios entre 1 y 9, matriz identidad. Luego, implemente funciones para imprimir una
