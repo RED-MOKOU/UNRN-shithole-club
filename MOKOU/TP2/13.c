@@ -1,6 +1,4 @@
-/* UNRN PyA - Jose Emanuel Suez
-
-13) Calculadora: Implementar una calculadora que sepa sumar, restar, multiplicar y dividir 2 numeros flotantes.
+/*13) Calculadora: Implementar una calculadora que sepa sumar, restar, multiplicar y dividir 2 numeros flotantes.
 Mostrar un menu con las 4 opciones, y utilizando puntero a funcion, realizar la operacion solicitada y
 mostrar el resultado.*/
 
