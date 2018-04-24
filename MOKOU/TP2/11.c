@@ -1,6 +1,4 @@
-/* UNRN PyA - Jose Emanuel Suez
-
-11) Especificar, para las siguientes lineas de código qué significa cada una:
+/*11) Especificar, para las siguientes lineas de código qué significa cada una:
 
 a) int (*puntero_funcion)(int);
 b) int *puntero_funcion (int);
