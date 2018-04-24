@@ -1,6 +1,4 @@
-/* UNRN PyA - Jose Emanuel Suez
-
-9) Declare una estructura para representar un punto en el espacio tridimensional (con campos x,y,z). Declare
+/*9) Declare una estructura para representar un punto en el espacio tridimensional (con campos x,y,z). Declare
 un puntero a la estructura para que tenga la direccion de un arreglo dinamico de n estructuras punto. Utilizar la
 funcion calloc() para asignar memoria al arreglo y compruebe que se ha podido asignar la memoria requerida.
 Escribir una funcion que retorne un puntero a un array de estructuras punto. Los valores de los puntos se
