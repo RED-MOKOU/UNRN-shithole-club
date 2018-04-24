@@ -1,6 +1,4 @@
-/* UNRN PyA - Jose Emanuel Suez
-
-10) Vector de vectores: realizar un programa que lea un valor. Dicho valor especifica la cantidad de elementos
+/*10) Vector de vectores: realizar un programa que lea un valor. Dicho valor especifica la cantidad de elementos
 de un arreglo de vectores de enteros. Para cada posicion del vector, pedir la dimension del subvector y alocar
 memoria para dicho vector. Inicializar toda la estructura y luego, imprimir los datos del vector. Desalocar
 memoria de forma correcta. Notar que es necesario mantener la informacion de la dimension de cada uno de
@@ -26,14 +24,14 @@ typedef struct {
 void PrintfInfo(Vector_T *v, int dim) {
 	puts("---");
 	for (int i = 0; i < dim; ++i) {
-		printf("nº: %d\ndireccion del vector: %p", (v+i)->n, (v+i)->vector);
+		printf("nº: %d\nDireccion del vector: %p\n", (v+i)->n, (v+i)->vector);
 		puts("---");
 	}
 }
 
 /*Libera cada subvector y luego el vector de vectores*/
 void FreeMem(Vector_T *Vector, int dim) {
-	for (int i = 0; i < dim; ++i) {
+	for (int i = 0; i < dim; ++i)
 		free((Vector+i)->vector);
 	free(Vector);
 }
@@ -42,28 +40,28 @@ void FreeMem(Vector_T *Vector, int dim) {
 void InitVec(Vector_T *R, int dim) {
 	for (int i = 0; i < dim; ++i) {
 	    (R+i)->vector = NULL;
-		(R+i)->vector = (int*)malloc((R+i)->n*sizeof(int));
-		if((R+i)->vector == NULL)
+		if(((R+i)->vector = (int*)malloc((R+i)->n*sizeof(int))) == NULL)
 				Quits();
+		puts("");
 		for (int j = 0; j < (R+i)->n; ++j) {
 			*(((R+i)->vector)+j) = rand()%MAX_VALUE;
-			printf("Vector %d, subvector %d: %d ", i, j, *(((R+i)->vector)+j));
+			printf("[Vector %d, subvector %d]: %d\n", i+1, j+1, *(((R+i)->vector)+j));
 		}
-		puts("");
 	}
 }
 
 /*Lee los tamaños de los subvectores y luego los inicializa mediante InitVec()*/
 Vector_T *Leer(int dim) {
 	Vector_T *V = NULL;
-	if(V == NULL)
+	if((V = (Vector_T*)malloc(dim*sizeof(Vector_T))) == NULL)
 		Quits();
-	puts("Ingrese el tamaño de los %d subvectores:");
+	printf("Ingrese el tamaño de los %d subvectores:\n", dim);
 	for (int i = 0; i < dim; ++i) {
 		printf("Tamaño del vector nº %d: ", i+1);
 		scanf("%d", &(V+i)->n);
 	}
 	InitVec(V, dim);
+	return V;
 }
 
 int main() {
