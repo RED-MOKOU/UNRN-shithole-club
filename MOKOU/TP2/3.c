@@ -1,6 +1,4 @@
-/* UNRN PyA - Jose Emanuel Suez
-
-3) Explique: ¿que diferencia hay entre las operaciones malloc(), calloc() y realloc()?. Explique para cada
+/*3) Explique: ¿que diferencia hay entre las operaciones malloc(), calloc() y realloc()?. Explique para cada
 una el tipo retornado y cada uno de los parametros que recibe.*/
 
 /*Suponiendo que hay un pointer llamado *p.
