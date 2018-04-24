@@ -1,6 +1,4 @@
-/* UNRN PyA - Jose Emanuel Suez
-
-7) Se tiene un arreglo de n elementos enteros (n es ingresado por teclado y se aloca memoria de forma dinamica).
+/*7) Se tiene un arreglo de n elementos enteros (n es ingresado por teclado y se aloca memoria de forma dinamica).
 Se inicializa el vector con valores aleatorios entre 0 y VALOR_MAX. Se quiere generar otro arreglo
 donde esten los elementos del vector original sin repetir. Escribir un programa que genere el nuevo vector, cuya
 dimension solo se conoce en tiempo de ejecucion. Luego muestre en pantalla ambos vectores. Nota: no implementar
