@@ -1,6 +1,4 @@
-/*PyA - Jose Emanuel Suez
-
-1) Se pide escribir un programa que mantenga la informacion de 10 numeros complejos. El siguiente codigo
+/*1) Se pide escribir un programa que mantenga la informacion de 10 numeros complejos. El siguiente codigo
 muestra una solucion propuesta. Explique que hace. Esquematice graficamente las estructuras de datos usadas
 y las variables. Ejemplifique entradas y salidas. ¿Es correcta dicha propuesta para solucionar el problema? Implementar
 las funcines leerComplejo() y mostrarComplejo().*/
