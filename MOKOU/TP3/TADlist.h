@@ -1,52 +1,20 @@
-/*1) Implementar el TAD lista de enteros utilizando punteros. Una posible implementación del tipo sería:
-struct Nodo
-{
-	int dato;
-	struct Nodo *sig;
-};
-
-typedef struct
-{
-	int n;
-	tsNodo *lista;
-} Lista_T;
-
-El TAD debe disponer de las siguientes funciones:
-Lista_T crearLista();
-int InsertarPrimero(Lista_T *l, int x );
-int InsertarUltimo(Lista_T *l, int x );
-int RecorrerLista(Lista_T l );
-int EstaVacia(Lista_T l);
-int VaciarLista(Lista_T *l);
-int SuprimirDato(Lista_T *l, int x);
-int SuprimirNodo(Lista_T *l, int pos);
-int LongitudLista(Lista_T l);
-int DevolverDatoPosicion(Lista_T l, int pos);
-*/
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef __TADLIST__
+#define __TADLIST__
 #define AGREGAR 1
 #define ELIMINAR 2
 #define IMPRIMIR 3
 #define BUSCAR 4
 
-typedef struct Nodo {
+struct Nodo {
 	int dato;
 	struct Nodo *sig;
-} tsNodo;
+};
 
 typedef struct {
 	int n;
-	tsNodo *lista;
+	struct Nodo *lista;
 } Lista_T;
 
-/*Definidos por el programador*/
-void Menu(Lista_T*);
-void SuprimirPrimerElemento(Lista_T*);
-void SuprimirUltimoElemento(Lista_T*);
-void Quits();
-
-/*Definidos por la consigna del ejercicio*/
 Lista_T CrearLista();
 int InsertarPrimero(Lista_T*, int);
 int InsertarUltimo(Lista_T*, int);
@@ -57,16 +25,11 @@ int SuprimirDato(Lista_T*, int);
 int SuprimirNodo(Lista_T*, int);
 int LongitudLista(Lista_T);
 int DevolverDatoPosicion(Lista_T, int);
-
-int main() {
-	Lista_T LinkedList = CrearLista();
-	Menu(&LinkedList);
-	if(VaciarLista(&LinkedList))
-		printf("La lista ha sido vaciada.\n");
-	else
-		printf("La lista no tenia elementos para vaciar.\n");
-	return 0;
-}
+void Menu(Lista_T*);
+void SuprimirPrimerElemento(Lista_T*);
+void SuprimirUltimoElemento(Lista_T*);
+void InsertarOrdenado(Lista_T*);
+void Quits();
 
 /*Crea una lista del tipo Lista_T con 0 elementos y la retorna (lista vacía).*/
 Lista_T CrearLista() {
@@ -77,9 +40,9 @@ Lista_T CrearLista() {
 
 /*Inserta nodo con elemento x como primer elemento de la lista. Retorna 1 si la operación se realiza con éxito, 0 caso contrario.*/
 int InsertarPrimero(Lista_T *l, int x) {
-	tsNodo *nuevo = NULL;
-	if((nuevo = (tsNodo*)malloc(sizeof(tsNodo))) == NULL) {
-		return 0;
+	struct Nodo *nuevo = NULL;
+	if((nuevo = (struct Nodo*)malloc(sizeof(struct Nodo))) == NULL) {
+		Quits();
 	}
 	nuevo->dato = x;
 	nuevo->sig = NULL;
@@ -90,8 +53,8 @@ int InsertarPrimero(Lista_T *l, int x) {
 
 /*Inserta nodo con elemento x como último elemento de la lista. Retorna 1 si la operación se realiza con éxito, 0 caso contrario.*/
 int InsertarUltimo(Lista_T *l, int x ) {
-	tsNodo *temp, *nuevo;
-	if ((nuevo = (tsNodo*)malloc(sizeof(tsNodo))) == NULL) {
+	struct Nodo *temp, *nuevo;
+	if ((nuevo = (struct Nodo*)malloc(sizeof(struct Nodo))) == NULL) {
 		printf("No hay memoria disponible.\n");
 		return 0;
 	} 
@@ -109,7 +72,7 @@ int InsertarUltimo(Lista_T *l, int x ) {
 
 /*Recorre la lista “l” imprimiendo sus elementos. Retorna 1 si la operación se realiza con éxito, 0 caso contrario (la lista no tiene elementos).*/
 int RecorrerLista(Lista_T l) {
-	tsNodo *elemento;
+	struct Nodo *elemento;
 	if(l.n < 0)
 		return 0;
 	else  {
@@ -131,17 +94,18 @@ int EstaVacia(Lista_T l) {
 
 /*Desaloca la memoria de cada nodo. Longitud de la lista = 0. Retorna 1 si la operación se realiza con éxito, 0 caso contrario.*/
 int VaciarLista(Lista_T *l) {
-	tsNodo *head, *curr;
+	struct Nodo *head, *curr;
 	printf("Vaciando lista");
 	if(l->n > 0) {
 		head = l->lista;
 		while ((curr = head) != NULL) {
 			head = head->sig;
 			free(curr);
-			printf(".\n");
+			printf(".");
 		}
-	l->n = 0;
-	return 1;
+		puts("");
+		l->n = 0;
+		return 1;
 	}
 	else
 		return 0;
@@ -149,7 +113,7 @@ int VaciarLista(Lista_T *l) {
 
 /*Elimina el nodo con el dato x de la lista. Retorna 1 si el dato esta en la lista (y es eliminado), 0 en caso contrario.*/
 int SuprimirDato(Lista_T *l, int x) {
-	tsNodo *curr, *temp = NULL;
+	struct Nodo *curr, *temp = NULL;
 	int pos = 0;
 	if(l->n) {
 		if ((l->lista)->dato == x) { //Primer elemento
@@ -181,8 +145,8 @@ int SuprimirDato(Lista_T *l, int x) {
 
 /*Elimina el nodo con posición pos de la lista. Retorna 1 si el dato esta en la lista (y es eliminado), 0 en caso contrario.*/
 int SuprimirNodo(Lista_T *l, int pos) {
-	tsNodo *curr = l->lista;
-	tsNodo *temp = NULL;
+	struct Nodo *curr = l->lista;
+	struct Nodo *temp = NULL;
 	if(pos == 0) {
 		SuprimirPrimerElemento(l);
 		--(l->n);
@@ -214,7 +178,7 @@ int LongitudLista(Lista_T l) {
 
 /*Devuelve el dato de la posición pos. Si no existe, devuelve una posicion negativa (-1)*/
 int DevolverDatoPosicion(Lista_T l, int pos) {
-	tsNodo *act;
+	struct Nodo *act;
 	if (pos >= 1 && pos <= LongitudLista(l)) {
 		act = l.lista;
 		for (int i = 0; i < pos; ++i)
@@ -229,7 +193,7 @@ int DevolverDatoPosicion(Lista_T l, int pos) {
 
 /*Se hace apuntar l->lista al elemento siguiente al primero, y luego se libera este.*/
 void SuprimirPrimerElemento(Lista_T* l) {
-	tsNodo *temp;
+    struct Nodo *temp;
 	if((temp = l->lista) == NULL) {
 		puts("Error: No se puede eliminar datos (no hay primer elemento).");
 		return;
@@ -240,7 +204,7 @@ void SuprimirPrimerElemento(Lista_T* l) {
 
 /*Itera hasta el penultimo elemento, libera el ultimo y asigna NULL al que ahora es el ultimo elemento.*/
 void SuprimirUltimoElemento(Lista_T *l) {
-	tsNodo *temp = l->lista;
+	struct Nodo *temp = l->lista;
 	while ((temp->sig)->sig != NULL) {
 		temp = temp->sig;
 	}
@@ -330,3 +294,5 @@ void Menu(Lista_T *list) {
 		}
 	} while (op != 0);
 }
+
+#endif
