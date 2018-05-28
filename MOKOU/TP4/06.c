@@ -19,7 +19,12 @@ typedef struct {
 //Crea la pila pasada como parámetro: con 0 elementos y asignando el valor correcto al resto de los
 //campos. O esta función puede no recibir parámetros y devolver un dato de tipo Pila_T
 Pila_T Crear_Pila(int max) {
-	return (Pila_T){ .indice = 0, .max = max, .pila = (Tipo_Dato*)malloc(max*sizeof(Tipo_Dato)) };
+	Pila_T out = (Pila_T){ .indice = 0, .max = max};
+	if ( (out.pila = (Tipo_Dato*)malloc(max*sizeof(Tipo_Dato))) == NULL) {
+		puts("Error: Memoria insuficiente.);
+		exit(-1);
+	}
+	return out;
 }
 
 //Añade x a la pila, si la misma no está llena.
