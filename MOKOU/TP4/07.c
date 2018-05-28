@@ -90,7 +90,6 @@ Retorna 1 en si esta balanceada, 0 en caso contrario.*/
 int Balance(char *string, Pila_T *Parentesis, Pila_T *Corchetes, Pila_T *Llaves) {
 	int balanceado = 1;
 	for (int i = 0; i < string_len && balanceado; ++i) {
-		printf("[FOR] Balanceado: %d\n", balanceado);
 		switch (string[i]) {
 			case '(':
 				Q_Push(Parentesis, string[i]);
@@ -114,8 +113,6 @@ int Balance(char *string, Pila_T *Parentesis, Pila_T *Corchetes, Pila_T *Llaves)
 				break;
 		}
 	}
-	printf("[OUTFOR] Balanceado: %d\n", balanceado);
-	printf("Parentesis:%d\nCorchetes:%d\nLlaves:%d\n", Parentesis->indice, Corchetes->indice, Llaves->indice);
 	if ( balanceado && ( (Parentesis->indice == 0) && (Corchetes->indice == 0) && (Llaves->indice == 0) ) )
 		return 1;
 	else
