@@ -69,7 +69,7 @@ char *ReadString() {
 		exit(-1);
 	}
 	puts("Ingrese la cadena a analizar:");
-	while( (ch = fgetc(stdin)) != ' ' && ch != '\n' ) {
+	while( (ch = fgetc(stdin)) != '\n' ) {
 		str[len++] = ch;
 		if(len == size){
 			if( (str = realloc(str, sizeof(*str)*(size+=10))) == NULL ) {
