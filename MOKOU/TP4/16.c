@@ -22,7 +22,7 @@ void InitNum(Lista_T *l) {
 	for (int i = 0; i < MAX-1; ++i) {
 		InsertarUltimo(l, rand()%100+1);
 	}
-	printf("La lista es: \n");
+	printf("La lista es:");
 	RecorrerLista(*l); // Imprime la lista
 }
 
