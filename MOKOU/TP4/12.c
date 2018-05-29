@@ -47,6 +47,7 @@ int main() {
 	InitQueue(&cola);
 	CopiarNegativos(&cola, &cola_negativos);
 	PrintQ(&cola_negativos);
-	Vaciar_Cola(&cola); Vaciar_Cola(&cola_negativos);
+	if( Vaciar_Cola(&cola) && Vaciar_Cola(&cola_negativos) )
+		puts("La memoria ha sido vaciada.");
 	return 0;
 }
