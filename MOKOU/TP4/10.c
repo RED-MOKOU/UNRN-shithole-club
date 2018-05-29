@@ -41,7 +41,7 @@ int main() {
 	Cola_T cola; Crear_Cola(&cola);
 	ParseNumberes(&numeros, &cola);
 	PrintQ(&cola);
-	Vaciar_Pila(&numeros);
-	Vaciar_Cola(&cola);
+	if( Vaciar_Pila(&numeros) && Vaciar_Cola(&cola) )
+		puts("La memoria ha sido vaciada.");
 	return 0;
 }
