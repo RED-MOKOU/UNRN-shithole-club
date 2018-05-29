@@ -58,5 +58,7 @@ int main() {
 		puts("es un palindromo.");
 	else
 		puts("no es un palindromo.");
+	if( Vaciar_Pila(&pila) && Vaciar_Cola(&cola) )
+		puts("La memoria ha sido vaciada.");
 	return 0;
 }
