@@ -16,52 +16,53 @@ void DestruirArbol(Arbol_T a) {
 
 /* Crea un arbol con un nodo con x como dato. Hijo izq e hijo der son árboles vacíos (NULL) */
 Arbol_T CrearArbol(Tipo_Dato x) {
-	Arbol_T a;
-	if ( (a = (Arbol_T)malloc(sizeof(struct Nodo))) == NULL )
-		Quits();
-	a->izq = NULL;
-	a->der = NULL;
-	a->dato = x;
-	return a;
+		Arbol_T a;
+		if ( (a = (Arbol_T)malloc(sizeof(struct Nodo))) == NULL )
+			Quits();
+		a->izq = NULL;
+		a->der = NULL;
+		a->dato = x;
+		return a;
 }
 
 /* Inserta el elemento "dato" en el ABB */
 void InsertarElemento(Arbol_T *a, Tipo_Dato dato) {
-	if ( *a == NULL )
-		*a = CrearArbol(dato);
-	else {
-		if ( dato < (*a)->dato )
-			InsertarElemento(&(*a)->izq, dato);
-		else
-			InsertarElemento(&(*a)->der, dato);
-	}
+		if ( *a == NULL )
+			*a = CrearArbol(dato);
+		else {
+			if ( dato < (*a)->dato )
+				InsertarElemento(&(*a)->izq, dato);
+			else
+				InsertarElemento(&(*a)->der, dato);
+		}
 }
 
 /* Procesa el ABB a en orden */
 void InOrder(Arbol_T a) {
-	if (a != NULL) {
-		InOrder(a->izq);
-		printf("%d ", a->dato);
-		InOrder(a->der);
-	}
+		if (a != NULL) {
+			InOrder(a->izq);
+			printf("%d ", a->dato);
+			InOrder(a->der);
+		}
 }
 
 /* Procesa el ABB a con orden pre-orden */
 void PreOrder(Arbol_T a) {
-	if (a != NULL) {
-		printf("%d ", a->dato);
-		PreOrder(a->izq);
-		PreOrder(a->der);
-	}
+		if (a != NULL) {
+			printf("%d ", a->dato);
+			PreOrder(a->izq);
+			PreOrder(a->der);
+		}
 }
 
 /* Procesa el ABB a en orden post-orden */
 void PostOrder(Arbol_T a) {
-	if (a != NULL) {
-		PostOrder(a->izq);
-		PostOrder(a->der);
-		printf("%d ", a->dato);
-	}
+		if (a != NULL) {
+			PostOrder(a->izq);
+			PostOrder(a->der);
+			printf("%d ", a->dato);
+		}
+
 }
 
 /*Devuelve el valor minimo de un arbol*/
@@ -114,17 +115,17 @@ Arbol_T EliminarElemento(Arbol_T a, Tipo_Dato dato) {
 
 /* Retorna true si el elemento dato existe en el ABB a */
 int Existe(Arbol_T a, Tipo_Dato dato) {
-	if (a == NULL)
-		return 0;
-	else
-		if (a->dato == dato)
-				return 1;
-		else { // TODO: busco en el hijo que corresponda
-			if ( dato < a->dato )
-				Existe(a->izq, dato);
-			else
-				Existe(a->der, dato);
-		}
+		if (a == NULL)
+			return 0;
+		else
+			if (a->dato == dato)
+					return 1;
+			else { // TODO: busco en el hijo que corresponda
+				if ( dato < a->dato )
+					Existe(a->izq, dato);
+				else
+					Existe(a->der, dato);
+			}
 }
 
 /* Retorna la cantidad de nodos del ABB a */
@@ -137,26 +138,26 @@ int ContarNodos(Arbol_T a) {
 
 /* Retorna el valor máximo del ABB a (nota: datos menores hacia la izquierda)*/
 int Maximo(Arbol_T a) {
-	if( a == NULL)
-		return 0;
-	else {
-		Arbol_T cur = a;
-		while ( cur->der != NULL)
-			cur = cur->der;
-		return cur->dato;
-	}
+		if( a == NULL)
+			return 0;
+		else {
+			Arbol_T cur = a;
+			while ( cur->der != NULL)
+				cur = cur->der;
+			return cur->dato;
+		}
 }
 
 /*Retorna en valor mínimo del ABB a */
 int Minimo(Arbol_T a) {
-	if( a == NULL)
-		return 0;
-	else {
-		Arbol_T cur = a;
-		while ( cur->izq != NULL)
-			cur = cur->izq;
-		return cur->dato;
-	}
+		if( a == NULL)
+			return 0;
+		else {
+			Arbol_T cur = a;
+			while ( cur->izq != NULL)
+				cur = cur->izq;
+			return cur->dato;
+		}
 }
 
 /* funcion auxiliar que retorna el maximo entre dos elementos int */
@@ -173,14 +174,13 @@ int Profundidad(Arbol_T a) {
 	return 1 + obtenerMax(profundidad_izq, profundidad_der);
 };
 
-
 void Menu(Arbol_T a) {
 	int op = 0, busqueda;
 	Tipo_Dato elemento;
 	char op_print;
 	do {
 		puts("Que desea realizar?");
-		printf("1)-Agregar dato\n2)-Eliminar dato\n3)-Imprimir lista\n0)-Salir\n");
+		printf("1)-Agregar dato\n2)-Eliminar dato\n3)-Imprimir lista\n4)-Imprimir informacion del arbol\n5)-Buscar elemento\n0)-Salir\n");
 		if(!scanf("%d", &op)) {
 			puts("Error de input.");
 			exit(-1);
@@ -230,6 +230,22 @@ void Menu(Arbol_T a) {
 							break;
 					}
 				}
+				break;
+			case INFO:
+				printf("El arbol tiene %d niveles y %d nodos.\n", Profundidad(a), ContarNodos(a));
+				printf("Valor maximo: [%d]\nValor Minimo: [%d]\n", Maximo(a) , Minimo(a));
+				break;
+			case BUSQUEDA:
+				printf("Ingrese el elemento que desea buscar: ");
+				if(!scanf("%d", &elemento)) {
+					puts("Error de input.");
+					exit(-1);
+				}
+				if ( Existe(a, elemento) ) {
+					printf("El elemento %d existe en el arbol.\n", elemento);
+				}
+				else
+					printf("El elemento %d no existe en el arbol.\n", elemento);
 				break;
 			default:
 				puts("Error: Opcion invalida.");
