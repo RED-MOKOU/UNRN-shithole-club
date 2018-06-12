@@ -62,7 +62,6 @@ void PostOrder(Arbol_T a) {
 		PostOrder(a->der);
 		printf("%d ", a->dato);
 	}
-
 }
 
 /*Devuelve el valor minimo de un arbol*/
