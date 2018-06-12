@@ -3,6 +3,8 @@
 #define AGREGAR 1
 #define ELIMINAR 2
 #define IMPRIMIR 3
+#define INFO 4
+#define BUSQUEDA 5
 
 // typedef int Tipo_Dato; //tomo int como el tipo de dato por default
 
