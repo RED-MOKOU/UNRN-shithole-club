@@ -117,15 +117,16 @@ Arbol_T EliminarElemento(Arbol_T a, Tipo_Dato dato) {
 int Existe(Arbol_T a, Tipo_Dato dato) {
 	if (a == NULL)
 		return 0;
-	else
+	else {
 		if (a->dato == dato)
-				return 1;
+			return 1;
 		else { // TODO: busco en el hijo que corresponda
 			if ( dato < a->dato )
 				Existe(a->izq, dato);
 			else
 				Existe(a->der, dato);
 		}
+	}
 }
 
 /* Retorna la cantidad de nodos del ABB a */
@@ -177,7 +178,6 @@ int Profundidad(Arbol_T a) {
 void Menu(Arbol_T a) {
 	int op = 0, busqueda;
 	Tipo_Dato elemento;
-	char op_print;
 	do {
 		puts("Que desea realizar?");
 		printf("1)-Agregar dato\n2)-Eliminar dato\n3)-Imprimir lista\n4)-Imprimir informacion del arbol\n5)-Buscar elemento\n0)-Salir\n");
@@ -233,7 +233,7 @@ void Menu(Arbol_T a) {
 				break;
 			case INFO:
 				printf("El arbol tiene %d niveles y %d nodos.\n", Profundidad(a), ContarNodos(a));
-				printf("Valor maximo: [%d]\nValor Minimo: [%d]\n", Maximo(a) , Minimo(a));
+				printf("Valor Maximo: [%d]\nValor Minimo: [%d]\n", Maximo(a) , Minimo(a));
 				break;
 			case BUSQUEDA:
 				printf("Ingrese el elemento que desea buscar: ");
