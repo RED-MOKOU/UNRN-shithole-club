@@ -17,44 +17,44 @@ struct Nodo {
 typedef struct Nodo *Arbol_T;
 
 /* Crea un arbol con un nodo con x como dato. Hijo izq e hijo der son árboles vacíos (NULL) */
-Arbol_T CrearArbol(Tipo_Dato x);
+Arbol_T CrearArbol(Tipo_Dato);
 
 /* Inserta el elemento "dato" en el ABB */
-int InsertarElemento(Arbol_T *a, Tipo_Dato dato);
+void InsertarElemento(Arbol_T*, Tipo_Dato);
 
 /* Procesa el ABB a en orden */
-void InOrder(Arbol_T a);
+void InOrder(Arbol_T);
 
 /* Procesa el ABB a con orden pre-orden */
-void PreOrder(Arbol_T a);
+void PreOrder(Arbol_T);
 
 /* Procesa el ABB a en orden post-orden */
-void PostOrder(Arbol_T a);
+void PostOrder(Arbol_T);
 
 /* elimina el elemento dato del ABB a */
-void EliminarElemento(Arbol_T *a, Tipo_Dato dato);
+Arbol_T EliminarElemento(Arbol_T, Tipo_Dato);
 
 /* Retorna true si el elemento dato existe en el ABB a */
-int Existe(Arbol_T a, Tipo_Dato dato);
+int Existe(Arbol_T, Tipo_Dato);
 
 /* Retorna la cantidad de nodos del ABB a */
-int ContarNodos(Arbol_T a);
+int ContarNodos(Arbol_T);
 
 /* Retorna el valor máximo del ABB a */
-int Maximo(Arbol_T a);
+int Maximo(Arbol_T);
 
 /*Retorna en valor mínimo del ABB a */
-int Minimo(Arbol_T a);
+int Minimo(Arbol_T);
 
 /* retorna la profundidad del ABB a */
-int Profundidad(Arbol_T a);
+int Profundidad(Arbol_T);
 
 /*---------------------------------
 DEFINIDOS POR EL PROGRAMADOR
 ---------------------------------*/
 void RecorrerArbol(Arbol_T a);
-Arbol_T ValorMin(Arbol_T a);
-void DestruirArbol(Arbol_T a);
+Arbol_T ValorMin(Arbol_T);
+void DestruirArbol(Arbol_T);
 void Menu();
 void Quits();
 
