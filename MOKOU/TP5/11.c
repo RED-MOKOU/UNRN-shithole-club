@@ -28,8 +28,10 @@ typedef int Tipo_Dato;
 int main() {
 	Arbol_T arbol = NULL;
 	Menu(arbol);
-	puts("Destuyendo el arbol...");
-	DestruirArbol(arbol);
-	puts("El arbol ha sido destruido.");
+	if ( arbol != NULL ) {
+		puts("Destuyendo el arbol...");
+		DestruirArbol(arbol);
+		puts("El arbol ha sido destruido.");
+	}
 	return 0;
 }
