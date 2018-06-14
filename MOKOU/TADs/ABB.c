@@ -176,7 +176,7 @@ int Profundidad(Arbol_T a) {
 };
 
 void Menu(Arbol_T a) {
-	int op = 0, busqueda;
+	int op = 0, print_order;
 	Tipo_Dato elemento;
 	do {
 		puts("Que desea realizar?");
@@ -215,11 +215,11 @@ void Menu(Arbol_T a) {
 				else {
 					puts("Ingrese modo de impresion.");
 					printf("1)-En Orden\n2)-Pre Orden\n3)-Post Orden\n");
-					if(!scanf("%d", &busqueda)) {
+					if(!scanf("%d", &print_order)) {
 						puts("Error de input.");
 						exit(-1);
 					}
-					switch(busqueda) {
+					switch(print_order) {
 						case 1:
 							InOrder(a);
 							puts("");
