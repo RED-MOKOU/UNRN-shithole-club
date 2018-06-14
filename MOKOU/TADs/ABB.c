@@ -120,7 +120,7 @@ int Existe(Arbol_T a, Tipo_Dato dato) {
 	else {
 		if (a->dato == dato)
 			return 1;
-		else { // TODO: busco en el hijo que corresponda
+		else { // busco en el hijo que corresponda
 			if ( dato < a->dato )
 				Existe(a->izq, dato);
 			else
