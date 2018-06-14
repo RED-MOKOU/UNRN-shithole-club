@@ -202,8 +202,12 @@ void Menu(Arbol_T a) {
 					puts("Error de input.");
 					exit(-1);
 				}
-				a = EliminarElemento(a, elemento);
-				printf("Elemento %d eliminado.\n", elemento);
+				if ( Existe(a, elemento) ) {
+					a = EliminarElemento(a, elemento);
+					printf("Elemento %d eliminado.\n", elemento);
+				}
+				else
+					printf("El elemento %d no existe en el arbol.", elemento);
 				break;
 			case IMPRIMIR:
 				if ( a == NULL ) //El arbol esta vacio
